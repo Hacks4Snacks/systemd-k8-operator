@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: systemd-helper
+spec:
+  selector:
+    matchLabels:
+      app: systemd-helper
+  template:
+    metadata:
+      labels:
+        app: systemd-helper
+    spec:
+      hostPID: true
+      volumes:
+      - name: host-systemd
+        hostPath:
+          path: /run/systemd
+      - name: host-dbus
+        hostPath:
+          path: /run/dbus
+      containers:
+      - name: systemd-helper
+        image: {IMAGE}
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: host-systemd
+          mountPath: /run/systemd
+        - name: host-dbus
+          mountPath: /run/dbus
+      imagePullSecrets:
+        - name: {IMAGEREPOSECRET}

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: systemdunit-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: systemdunit-controller
+  template:
+    metadata:
+      labels:
+        app: systemdunit-controller
+    spec:
+      containers:
+        - name: systemdunit-controller
+          image: {IMAGE}
+          imagePullPolicy: Always
+      imagePullSecrets:
+        - name: {IMAGEREPOSECRET}

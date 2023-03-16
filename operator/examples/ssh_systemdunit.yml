@@ -1,0 +1,6 @@
+apiVersion: hacks4snacks/v1
+kind: SystemdUnit
+metadata:
+  name: ssh-systemdunit
+spec:
+  unitName: ssh.service

@@ -1,0 +1,44 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: systemdunits.hacks4snacks
+spec:
+  group: hacks4snacks
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                unitName:
+                  type: string
+            status:
+              type: object
+              properties:
+                nodeStatuses:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      nodeName:
+                        type: string
+                      unitName:
+                        type: string
+                      unitStatus:
+                        type: string
+                    required:
+                      - nodeName
+                      - unitName
+                      - unitStatus
+  scope: Cluster
+  names:
+    plural: systemdunits
+    singular: systemdunit
+    kind: SystemdUnit
+    shortNames:
+      - sdu
