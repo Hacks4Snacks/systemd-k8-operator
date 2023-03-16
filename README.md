@@ -15,24 +15,26 @@ The Systemd Unit Operator is a Kubernetes operator that allows you to monitor th
 
 ### Installation
 
-    1. Clone the repository:
+1. Clone the repository:
+
 ```Shell
     git clone https://github.com/example/systemd-unit-operator.git
     cd systemd-unit-operator
 ```
 
-    2. Create the CustomResourceDefinition:
+2. Create the CustomResourceDefinition:
+
 ```Shell
     kubectl apply -f operator/crds/systemdunit_crd.yaml
 ```
 
-    3. Deploy the helper pod:
+3. Deploy the helper pod:
 
 ```Shell
     kubectl apply -f operator/deployments/helper_service.yaml
 ```
 
-    4. Deploy the controller:
+4. Deploy the controller:
 
 ```Shell
     kubectl apply -f operator/deployments/controller.yaml
