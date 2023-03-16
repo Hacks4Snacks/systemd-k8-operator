@@ -40,7 +40,7 @@ The Systemd Unit Operator is a Kubernetes operator that allows you to monitor th
     kubectl apply -f operator/deployments/controller.yaml
 ```
 
-## Usage
+### Usage
 
 1. Create a SystemdUnit custom resource:
 
