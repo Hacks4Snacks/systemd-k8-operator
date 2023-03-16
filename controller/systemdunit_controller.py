@@ -34,7 +34,7 @@ def main():
         config.load_kube_config()
 
     api = client.CustomObjectsApi()
-    group = "mycompany.com"
+    group = "hacks4snacks"
     version = "v1"
     plural = "systemdunits"
     namespace = "default"
